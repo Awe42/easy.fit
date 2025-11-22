@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>easy.fit - Agent Interface</title>
+    <style>
+        body { font-family: sans-serif; max-width: 900px; margin: 2rem auto; padding: 0 1rem; background-color: #fafafa; }
+        h1 { color: #333; }
+        .container { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        
+        label { font-weight: bold; display: block; margin-bottom: 0.5rem; }
+        textarea { 
+            width: 100%; 
+            height: 300px; 
+            font-family: 'Consolas', 'Monaco', monospace; 
+            font-size: 0.85rem; 
+            padding: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            box-sizing: border-box; /* keeps padding inside width */
+            margin-bottom: 1rem;
+        }
+
+        .controls { display: flex; gap: 10px; margin-bottom: 1rem; }
+        
+        button { padding: 12px 24px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button#triggerBtn { background: #007bff; color: white; }
+        button#triggerBtn:hover { background: #0056b3; }
+        button#triggerBtn:disabled { background: #ccc; cursor: not-allowed; }
+        
+        button.secondary { background: #e2e6ea; color: #333; }
+        button.secondary:hover { background: #dbe0e5; }
+
+        .status { margin-top: 1rem; font-style: italic; color: #666; }
+        .response-box { background: #f8f9fa; border-left: 5px solid #007bff; padding: 1.5rem; margin-top: 1rem; white-space: pre-wrap; border-radius: 4px; }
+        .error-box { background: #fff3f3; border-left: 5px solid #dc3545; color: #dc3545; padding: 1rem; margin-top: 1rem; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>easy.fit <span style="font-weight:normal; color:#888">| Orchestrator Console</span></h1>
+    
+    <label for="jsonInput">Input Context JSON (Sentry/Scout Data):</label>
+    <textarea id="jsonInput" spellcheck="false"></textarea>
+
+    <div class="controls">
+        <button id="triggerBtn" onclick="triggerAgent()">Run Agent Flow</button>
+        <button class="secondary" onclick="resetDefault()">Load Default Scenario</button>
+        <button class="secondary" onclick="clearInput()">Clear</button>
+    </div>
+    
+    <div id="status" class="status">Ready.</div>
+    <div id="output" class="response-box" style="display:none;"></div>
+    <div id="error" class="error-box" style="display:none;"></div>
+</div>
+
+<script>
+    // The "Alex" scenario from your uploaded files
+    const defaultScenario = {
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_01_student",
+        "name": "Alex",
+        "role": "Student",
+        "age": 22,
+        "traits": ["Night Owl", "High Screen Time", "Stress from Exams"],
+        "base_location": {"lat": 48.1500, "lon": 11.5800}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 92,
+                    "resting_hr_bpm": 68,
+                    "max_hr_bpm": 115
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 88,
+                "analysis": "HIGH",
+                "stress_duration_seconds": 22000
+            },
+            "scores": {
+                "sleep": 45,
+                "recovery": 30,
+                "activity": 20
+            },
+            "distance_data": {
+                "steps": 2100
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 11.5,
+        "productivity_pulse": 65,
+        "top_activities": [
+            {"name": "VS Code", "category": "Software Development", "time_spent_seconds": 18000},
+            {"name": "League of Legends", "category": "Gaming", "time_spent_seconds": 7200},
+            {"name": "Discord", "category": "Communication", "time_spent_seconds": 5400}
+        ]
+    },
+    "gcal": {
+        "summary": "Alex's Calendar",
+        "items": [
+            {
+                "summary": "Advanced Algorithms Exam",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-23T09:00:00+01:00" },
+                "end": { "dateTime": "2025-11-23T12:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Home",
+                        "latitudeE7": 481500000,
+                        "longitudeE7": 115800000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T00:00:00Z",
+                        "endTimestamp": "2025-11-22T16:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1500,
+      "lon": 11.5800,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 18.5,
+        "feels_like": 17.2,
+        "pressure": 1015,
+        "humidity": 65,
+        "dew_point": 11.8,
+        "uvi": 2,
+        "clouds": 40,
+        "visibility": 10000,
+        "wind_speed": 3.2,
+        "wind_deg": 220,
+        "weather": [
+          {
+            "id": 802,
+            "main": "Clouds",
+            "description": "scattered clouds",
+            "icon": "03d"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 35,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 1100,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.88,
+        "travelTimeIndex": 1.25
+      },
+      "incidents": []
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "EducationEvent",
+          "identifier": "evt_tum_401",
+          "name": "Study Group: Algorithms Mock Exam",
+          "description": "Final prep session before tomorrow's exam. Bring your questions!",
+          "startDate": "2025-11-22T18:00:00+01:00",
+          "endDate": "2025-11-22T21:00:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "TUM Main Library",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Arcisstraße 21",
+              "addressLocality": "München",
+              "postalCode": "80333",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1490,
+              "longitude": 11.5680
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "TUM Computer Science Students"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "identifier": "evt_jog_102",
+          "name": "Evening Jog - English Garden",
+          "description": "Casual group jog, all paces welcome. Meet at Chinese Tower.",
+          "startDate": "2025-11-22T17:30:00+01:00",
+          "endDate": "2025-11-22T18:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Chinese Tower, English Garden",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1580,
+              "longitude": 11.5960
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FoodEvent",
+          "identifier": "evt_cafe_88",
+          "name": "Late Night Study Cafe",
+          "description": "Open until midnight. Free WiFi, quiet study zones.",
+          "startDate": "2025-11-22T19:00:00+01:00",
+          "endDate": "2025-11-23T00:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Café Glockenspiel",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1480,
+              "longitude": 11.5750
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_01_student",
+      "name": "Alex",
+      "role": "Student",
+      "current_location": { "name": "Home (Schwabing)", "lat": 48.1500, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "FREE",
+        "risk_flags": ["BURNOUT_RISK", "SEDENTARY_ALERT"],
+        "current_focus": "Exam Preparation"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_06_classmate", "relation": "Study Partner", "status": "GOOD", "last_contact_days": 1 }
+      ]
+    },
+    {
+      "user_id": "user_06_classmate",
+      "name": "Sarah",
+      "role": "Student",
+      "current_location": { "name": "TUM Campus", "lat": 48.1490, "lon": 11.5680 },
+      "sentry_analysis": {
+        "stress_level": "ELEVATED",
+        "availability": "FREE",
+        "current_focus": "Exam Preparation"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_01_student", "relation": "Study Partner", "status": "GOOD", "last_contact_days": 1 }
+      ]
+    }
+  ]
+}
+};
+
+    // Load Default on Start
+    window.onload = resetDefault;
+
+    function resetDefault() {
+        document.getElementById('jsonInput').value = JSON.stringify(defaultScenario, null, 2);
+        clearStatus();
+    }
+
+    function clearInput() {
+        document.getElementById('jsonInput').value = '';
+        clearStatus();
+    }
+
+    function clearStatus() {
+        document.getElementById('output').style.display = 'none';
+        document.getElementById('error').style.display = 'none';
+        document.getElementById('status').innerText = 'Ready.';
+    }
+
+async function triggerAgent() {
+        const btn = document.getElementById('triggerBtn');
+        const status = document.getElementById('status');
+        const output = document.getElementById('output');
+        const errorDiv = document.getElementById('error');
+        const textarea = document.getElementById('jsonInput');
+
+        clearStatus();
+
+        // 1. Validate and Parse JSON
+        let parsedContext; 
+        try {
+            if (!textarea.value.trim()) throw new Error("Input is empty");
+            parsedContext = JSON.parse(textarea.value); // <--- Variable defined here
+        } catch (e) {
+            errorDiv.style.display = 'block';
+            errorDiv.innerText = "Invalid JSON syntax. Please check your input.";
+            return; // Stop if JSON is bad
+        }
+        
+        btn.disabled = true;
+        status.innerText = "Sending context to Wellness Council (Bedrock)...";
+
+        try {
+            // 2. Send parsed object to our Proxy Server
+            const response = await fetch('http://localhost:3000/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ contextData: parsedContext }) // <--- Now it exists!
+            });
+
+            // 3. Check for HTTP errors (like 500 or 404)
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `HTTP Error: ${response.status}`);
+            }
+
+            // 4. Parse the successful JSON response
+            const data = await response.json();
+
+            if (data.success) {
+                status.innerText = "Success: Response Received.";
+                output.style.display = 'block';
+                output.innerText = data.reply || "Agent returned no text (check server console).";
+            } else {
+                throw new Error(data.error);
+            }
+
+        } catch (e) {
+            console.error(e);
+            errorDiv.style.display = 'block';
+            errorDiv.innerText = "Error: " + e.message;
+            status.innerText = "Failed.";
+        } finally {
+            btn.disabled = false;
+        }
+    }
+</script>
+
+</body>
+</html>
