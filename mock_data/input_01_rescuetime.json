@@ -1,0 +1,30 @@
+{
+  "status": "success",
+  "date": "2025-11-22",
+  "productivity_pulse": 45, 
+  "total_hours": 8.5,
+  "category_breakdown": [
+    {
+      "category": "Social Networking",
+      "time_spent_seconds": 10800,
+      "percentage": 35,
+      "productivity_score": -2 
+    },
+    {
+      "category": "Software Development",
+      "time_spent_seconds": 7200,
+      "percentage": 23,
+      "productivity_score": 2
+    },
+    {
+      "category": "Entertainment",
+      "time_spent_seconds": 5400,
+      "percentage": 18,
+      "productivity_score": -1
+    }
+  ],
+  "top_activities": [
+    { "name": "TikTok", "time_spent_seconds": 5000, "category": "Social Networking" },
+    { "name": "VS Code", "time_spent_seconds": 7000, "category": "Software Development" }
+  ]
+}

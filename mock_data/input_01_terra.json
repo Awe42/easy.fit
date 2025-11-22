@@ -1,37 +1,4 @@
 {
-    "user_profile": {
-        "age": 74,
-        "occupation": "Retired Architect"
-    },
-    "calendar_context": {
-        "past_7_days": [],
-        "upcoming_7_days": [
-            {
-                "title": "Cardiologist Appt",
-                "time": "2025-11-25T10:00:00",
-                "category": "Health"
-            }
-        ]
-    },
-    "screen_time_history": {
-        "avg_daily_hours": 3.5,
-        "most_used_apps": [
-            "WhatsApp",
-            "News App",
-            "Solitaire"
-        ],
-        "communication_pattern": "Usually calls daughter on Sundays"
-    },
-    "current_state_snapshot": {
-        "timestamp": "Tuesday 15:00",
-        "location_label": "Home",
-        "time_at_location_hours": 72,
-        "steps_today": 450,
-        "screen_time_today": 6.5,
-        "active_app": "Solitaire",
-        "last_outgoing_call_days_ago": 5
-    },
-    "health_data_terra": {
         "meta": {
             "timestamp": "2025-11-22T14:15:00+01:00",
             "description": "Unified payload for Hackathon Sentry Agent. Aggregates Daily, Body, and Menstruation endpoints."
@@ -175,4 +142,3 @@
             }
         ]
     }
-}

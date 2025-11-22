@@ -1,0 +1,103 @@
+{
+  "timelineObjects": [
+    {
+      "placeVisit": {
+        "location": {
+          "latitudeE7": 481351230,
+          "longitudeE7": 115820120,
+          "placeId": "home_apartment_id",
+          "address": "Isartorplatz, 80331 München",
+          "name": "Home",
+          "sourceInfo": {
+            "deviceTag": 123456789
+          },
+          "locationConfidence": 100.0
+        },
+        "duration": {
+          "startTimestamp": "2025-11-22T00:00:00Z",
+          "endTimestamp": "2025-11-22T10:30:00Z"
+        },
+        "placeConfidence": "HIGH_CONFIDENCE",
+        "visitConfidence": 98
+      }
+    },
+    {
+      "activitySegment": {
+        "startLocation": {
+          "latitudeE7": 481351230,
+          "longitudeE7": 115820120
+        },
+        "endLocation": {
+          "latitudeE7": 481507000,
+          "longitudeE7": 115944000
+        },
+        "duration": {
+          "startTimestamp": "2025-11-22T10:30:00Z",
+          "endTimestamp": "2025-11-22T11:00:00Z"
+        },
+        "distance": 2100,
+        "activityType": "WALKING",
+        "confidence": "HIGH",
+        "activities": [
+          { "activityType": "WALKING", "probability": 95.0 },
+          { "activityType": "IN_TRAM", "probability": 5.0 }
+        ]
+      }
+    },
+    {
+      "placeVisit": {
+        "location": {
+          "latitudeE7": 481507000,
+          "longitudeE7": 115944000,
+          "placeId": "ChIJ2V-Mo6l1nzoRTbIxqD03OBY",
+          "address": "Englischer Garten, München",
+          "name": "Englischer Garten",
+          "semanticType": "PARK",
+          "locationConfidence": 85.5
+        },
+        "duration": {
+          "startTimestamp": "2025-11-22T11:00:00Z",
+          "endTimestamp": "2025-11-22T13:00:00Z"
+        },
+        "placeConfidence": "HIGH_CONFIDENCE"
+      }
+    },
+    {
+      "activitySegment": {
+        "startLocation": {
+          "latitudeE7": 481507000,
+          "longitudeE7": 115944000
+        },
+        "endLocation": {
+          "latitudeE7": 481400000,
+          "longitudeE7": 115750000
+        },
+        "duration": {
+          "startTimestamp": "2025-11-22T13:00:00Z",
+          "endTimestamp": "2025-11-22T13:20:00Z"
+        },
+        "distance": 1500,
+        "activityType": "IN_PASSENGER_VEHICLE",
+        "confidence": "MEDIUM"
+      }
+    },
+    {
+      "placeVisit": {
+        "location": {
+          "latitudeE7": 481400000,
+          "longitudeE7": 115750000,
+          "placeId": "cafe_fresh_beans_id",
+          "name": "Man Versus Machine Coffee Roasters",
+          "address": "Müllerstraße 23, 80469 München",
+          "semanticType": "CAFE"
+        },
+        "duration": {
+          "startTimestamp": "2025-11-22T13:20:00Z",
+          "endTimestamp": "2025-11-22T14:36:00Z" 
+        },
+        "placeConfidence": "HIGH_CONFIDENCE",
+        "isCurrentLocation": true
+      }
+    }
+  ]
+}

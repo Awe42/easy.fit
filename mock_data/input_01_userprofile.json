@@ -1,0 +1,43 @@
+{
+  "user_id": "retired_hans_01",
+  "age": 74,
+  "occupation": "Retired Architect",
+  "languages_spoken": ["German", "English (Basic)"],
+  "social_preferences": {
+    "group_dynamics": {
+      "ideal_group_size": "SMALL", 
+      "max_group_size": 5,
+      "description": "Prefers intimate settings where conversation is easy; overwhelmed by loud crowds."
+    },
+    "interaction_boundaries": {
+      "gender_preference": "MIXED", 
+      "age_group_preference": "SENIOR_FOCUSED", 
+      "language_requirement": "MUST_SPEAK_GERMAN"
+    },
+    "social_energy_battery": {
+      "max_duration_minutes": 90,
+      "preferred_time_of_day": "MORNING"
+    }
+  },
+  "activity_constraints": {
+    "mobility_profile": {
+      "status": "MODERATE",
+      "walking_speed": "SLOW",
+      "max_distance_km": 3.0,
+      "requires_accessibility": false
+    },
+    "interests": {
+      "high_priority": ["Architecture", "History", "Nature Walks", "Classical Music"],
+      "avoid": ["Loud Bars", "Tech Meetups", "High Intensity Sports"]
+    },
+    "logistics": {
+      "max_travel_radius_km": 5,
+      "transport_mode": "PUBLIC_TRANSIT"
+    }
+  },
+  "agent_settings": {
+    "proactivity_level": "SUGGESTIVE", 
+    "communication_style": "FORMAL_EMPATHETIC",
+    "privacy_mode": "STRICT_LOCAL_ONLY"
+  }
+}

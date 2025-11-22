@@ -1,0 +1,36 @@
+{
+  "kind": "calendar#events",
+  "summary": "User Calendar",
+  "items": [
+    {
+      "kind": "calendar#event",
+      "status": "confirmed",
+      "summary": "Thermodynamics Exam", 
+      "description": "Final exam, very important.",
+      "location": "Room 101, Engineering Building",
+      "start": {
+        "dateTime": "2025-11-25T09:00:00+01:00",
+        "timeZone": "Europe/Berlin"
+      },
+      "end": {
+        "dateTime": "2025-11-25T12:00:00+01:00",
+        "timeZone": "Europe/Berlin"
+      },
+      "attendees": [
+        { "email": "alex@student.tum.de", "responseStatus": "accepted" }
+      ]
+    },
+    {
+      "kind": "calendar#event",
+      "status": "tentative",
+      "summary": "Coffee with Sarah?",
+      "description": "Maybe meet at the cafe?",
+      "start": {
+        "dateTime": "2025-11-25T14:00:00+01:00"
+      },
+      "end": {
+        "dateTime": "2025-11-25T15:00:00+01:00"
+      }
+    }
+  ]
+}
