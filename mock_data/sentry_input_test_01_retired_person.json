@@ -1,52 +1,66 @@
 {
     "user_profile": {
+        "user_id": "retired_hans_01",
         "age": 74,
         "occupation": "Retired Architect",
-        "baselines": {
-            "avg_daily_steps": 4500,
-            "usual_wake_time": "07:00",
-            "usual_locations": [
-                "Home",
-                "Bakery",
-                "Park Bench"
-            ]
+        "languages_spoken": [
+            "German",
+            "English (Basic)"
+        ],
+        "social_preferences": {
+            "group_dynamics": {
+                "ideal_group_size": "SMALL",
+                "max_group_size": 5,
+                "description": "Prefers intimate settings where conversation is easy; overwhelmed by loud crowds."
+            },
+            "interaction_boundaries": {
+                "gender_preference": "MIXED",
+                "age_group_preference": "SENIOR_FOCUSED",
+                "language_requirement": "MUST_SPEAK_GERMAN"
+            },
+            "social_energy_battery": {
+                "max_duration_minutes": 90,
+                "preferred_time_of_day": "MORNING"
+            }
+        },
+        "activity_constraints": {
+            "mobility_profile": {
+                "status": "MODERATE",
+                "walking_speed": "SLOW",
+                "max_distance_km": 3,
+                "requires_accessibility": false
+            },
+            "interests": {
+                "high_priority": [
+                    "Architecture",
+                    "History",
+                    "Nature Walks",
+                    "Classical Music"
+                ],
+                "avoid": [
+                    "Loud Bars",
+                    "Tech Meetups",
+                    "High Intensity Sports"
+                ]
+            },
+            "logistics": {
+                "max_travel_radius_km": 5,
+                "transport_mode": "PUBLIC_TRANSIT"
+            }
+        },
+        "agent_settings": {
+            "proactivity_level": "SUGGESTIVE",
+            "communication_style": "FORMAL_EMPATHETIC",
+            "privacy_mode": "STRICT_LOCAL_ONLY"
         }
     },
-    "calendar_context": {
-        "past_7_days": [],
-        "upcoming_7_days": [
-            {
-                "title": "Cardiologist Appt",
-                "time": "2025-11-25T10:00:00",
-                "category": "Health"
-            }
-        ]
-    },
-    "screen_time_history": {
-        "avg_daily_hours": 3.5,
-        "most_used_apps": [
-            "WhatsApp",
-            "News App",
-            "Solitaire"
-        ],
-        "communication_pattern": "Usually calls daughter on Sundays"
-    },
-    "current_state_snapshot": {
-        "timestamp": "Tuesday 15:00",
-        "location_label": "Home",
-        "time_at_location_hours": 72,
-        "steps_today": 450,
-        "screen_time_today": 6.5,
-        "active_app": "Solitaire",
-        "last_outgoing_call_days_ago": 5
-    },
-    "health_data_terra": {
+    "terra": {
         "meta": {
             "timestamp": "2025-11-22T14:15:00+01:00",
             "description": "Unified payload for Hackathon Sentry Agent. Aggregates Daily, Body, and Menstruation endpoints."
         },
         "user": {
-            "user_id": "12345-terra-sarah",
+            "user_id": "12345-hans",
             "provider": "GARMIN",
             "region": "EU"
         },
@@ -181,6 +195,192 @@
                 "avg_hr": 110,
                 "avg_stress": 35,
                 "sleep_score": 82
+            }
+        ]
+    },
+    "rescuetime": {
+        "status": "success",
+        "date": "2025-11-22",
+        "productivity_pulse": 45,
+        "total_hours": 8.5,
+        "category_breakdown": [
+            {
+                "category": "Social Networking",
+                "time_spent_seconds": 10800,
+                "percentage": 35,
+                "productivity_score": -2
+            },
+            {
+                "category": "Software Development",
+                "time_spent_seconds": 7200,
+                "percentage": 23,
+                "productivity_score": 2
+            },
+            {
+                "category": "Entertainment",
+                "time_spent_seconds": 5400,
+                "percentage": 18,
+                "productivity_score": -1
+            }
+        ],
+        "top_activities": [
+            {
+                "name": "TikTok",
+                "time_spent_seconds": 5000,
+                "category": "Social Networking"
+            },
+            {
+                "name": "VS Code",
+                "time_spent_seconds": 7000,
+                "category": "Software Development"
+            }
+        ]
+    },
+    "gcal": {
+        "kind": "calendar#events",
+        "summary": "User Calendar",
+        "items": [
+            {
+                "kind": "calendar#event",
+                "status": "confirmed",
+                "summary": "Thermodynamics Exam",
+                "description": "Final exam, very important.",
+                "location": "Room 101, Engineering Building",
+                "start": {
+                    "dateTime": "2025-11-25T09:00:00+01:00",
+                    "timeZone": "Europe/Berlin"
+                },
+                "end": {
+                    "dateTime": "2025-11-25T12:00:00+01:00",
+                    "timeZone": "Europe/Berlin"
+                },
+                "attendees": [
+                    {
+                        "email": "alex@student.tum.de",
+                        "responseStatus": "accepted"
+                    }
+                ]
+            },
+            {
+                "kind": "calendar#event",
+                "status": "tentative",
+                "summary": "Coffee with Sarah?",
+                "description": "Maybe meet at the cafe?",
+                "start": {
+                    "dateTime": "2025-11-25T14:00:00+01:00"
+                },
+                "end": {
+                    "dateTime": "2025-11-25T15:00:00+01:00"
+                }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "latitudeE7": 481351230,
+                        "longitudeE7": 115820120,
+                        "placeId": "home_apartment_id",
+                        "address": "Isartorplatz, 80331 München",
+                        "name": "Home",
+                        "sourceInfo": {
+                            "deviceTag": 123456789
+                        },
+                        "locationConfidence": 100
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T00:00:00Z",
+                        "endTimestamp": "2025-11-22T10:30:00Z"
+                    },
+                    "placeConfidence": "HIGH_CONFIDENCE",
+                    "visitConfidence": 98
+                }
+            },
+            {
+                "activitySegment": {
+                    "startLocation": {
+                        "latitudeE7": 481351230,
+                        "longitudeE7": 115820120
+                    },
+                    "endLocation": {
+                        "latitudeE7": 481507000,
+                        "longitudeE7": 115944000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T10:30:00Z",
+                        "endTimestamp": "2025-11-22T11:00:00Z"
+                    },
+                    "distance": 2100,
+                    "activityType": "WALKING",
+                    "confidence": "HIGH",
+                    "activities": [
+                        {
+                            "activityType": "WALKING",
+                            "probability": 95
+                        },
+                        {
+                            "activityType": "IN_TRAM",
+                            "probability": 5
+                        }
+                    ]
+                }
+            },
+            {
+                "placeVisit": {
+                    "location": {
+                        "latitudeE7": 481507000,
+                        "longitudeE7": 115944000,
+                        "placeId": "ChIJ2V-Mo6l1nzoRTbIxqD03OBY",
+                        "address": "Englischer Garten, München",
+                        "name": "Englischer Garten",
+                        "semanticType": "PARK",
+                        "locationConfidence": 85.5
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T11:00:00Z",
+                        "endTimestamp": "2025-11-22T13:00:00Z"
+                    },
+                    "placeConfidence": "HIGH_CONFIDENCE"
+                }
+            },
+            {
+                "activitySegment": {
+                    "startLocation": {
+                        "latitudeE7": 481507000,
+                        "longitudeE7": 115944000
+                    },
+                    "endLocation": {
+                        "latitudeE7": 481400000,
+                        "longitudeE7": 115750000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T13:00:00Z",
+                        "endTimestamp": "2025-11-22T13:20:00Z"
+                    },
+                    "distance": 1500,
+                    "activityType": "IN_PASSENGER_VEHICLE",
+                    "confidence": "MEDIUM"
+                }
+            },
+            {
+                "placeVisit": {
+                    "location": {
+                        "latitudeE7": 481400000,
+                        "longitudeE7": 115750000,
+                        "placeId": "cafe_fresh_beans_id",
+                        "name": "Man Versus Machine Coffee Roasters",
+                        "address": "Müllerstraße 23, 80469 München",
+                        "semanticType": "CAFE"
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T13:20:00Z",
+                        "endTimestamp": "2025-11-22T14:36:00Z"
+                    },
+                    "placeConfidence": "HIGH_CONFIDENCE",
+                    "isCurrentLocation": true
+                }
             }
         ]
     }
