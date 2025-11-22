@@ -1,0 +1,72 @@
+{
+    "user_profile": {
+        "user_id": "user_01_student",
+        "name": "Alex",
+        "role": "Student",
+        "age": 22,
+        "traits": ["Night Owl", "High Screen Time", "Stress from Exams"],
+        "base_location": {"lat": 48.1500, "lon": 11.5800}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 92,
+                    "resting_hr_bpm": 68,
+                    "max_hr_bpm": 115
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 88,
+                "analysis": "HIGH",
+                "stress_duration_seconds": 22000
+            },
+            "scores": {
+                "sleep": 45,
+                "recovery": 30,
+                "activity": 20
+            },
+            "distance_data": {
+                "steps": 2100
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 11.5,
+        "productivity_pulse": 65,
+        "top_activities": [
+            {"name": "VS Code", "category": "Software Development", "time_spent_seconds": 18000},
+            {"name": "League of Legends", "category": "Gaming", "time_spent_seconds": 7200},
+            {"name": "Discord", "category": "Communication", "time_spent_seconds": 5400}
+        ]
+    },
+    "gcal": {
+        "summary": "Alex's Calendar",
+        "items": [
+            {
+                "summary": "Advanced Algorithms Exam",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-23T09:00:00+01:00" },
+                "end": { "dateTime": "2025-11-23T12:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Home",
+                        "latitudeE7": 481500000,
+                        "longitudeE7": 115800000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T00:00:00Z",
+                        "endTimestamp": "2025-11-22T16:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+}

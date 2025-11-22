@@ -1,0 +1,217 @@
+{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1351,
+      "lon": 11.5820,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 14.2,
+        "feels_like": 12.8,
+        "pressure": 1012,
+        "humidity": 82,
+        "dew_point": 11.0,
+        "uvi": 0,
+        "clouds": 90,
+        "visibility": 8000,
+        "wind_speed": 5.1,
+        "wind_deg": 280,
+        "weather": [
+          {
+            "id": 500,
+            "main": "Rain",
+            "description": "light rain",
+            "icon": "10d"
+          }
+        ]
+      },
+      "alerts": [
+        {
+          "sender_name": "DWD (German Weather Service)",
+          "event": "Wind Advisory",
+          "start": 1763827200,
+          "end": 1763841600,
+          "description": "Gusts up to 60km/h possible in exposed areas."
+        }
+      ]
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 22,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 1800,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.95,
+        "travelTimeIndex": 2.04
+      },
+      "incidents": [
+        {
+          "id": "inc_001",
+          "type": "JAM",
+          "severity": 3,
+          "description": "Stationary traffic on Mittlerer Ring",
+          "location": { "lat": 48.1400, "lon": 11.6000 },
+          "delayInSeconds": 900,
+          "lengthInMeters": 2500
+        }
+      ]
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "SocialEvent",
+          "identifier": "evt_mu_882",
+          "name": "Munich English Speakers Dinner",
+          "description": "A casual dinner for expats and locals to practice English.",
+          "startDate": "2025-11-22T19:00:00+01:00",
+          "endDate": "2025-11-22T21:00:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Hofbräukeller",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Innere Wiener Straße 19",
+              "addressLocality": "München",
+              "postalCode": "81667",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1330,
+              "longitude": 11.5980
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "remaining_spots": 3
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "Munich Expats Meetup"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "identifier": "evt_eb_101",
+          "name": "Late Night Bouldering Session",
+          "description": "Discounted entry after 8 PM. Student friendly atmosphere.",
+          "startDate": "2025-11-22T20:00:00+01:00",
+          "endDate": "2025-11-22T23:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Boulderwelt München Ost",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1250,
+              "longitude": 11.6050
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "9.50",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MusicEvent",
+          "identifier": "evt_cm_22",
+          "name": "Mozart Evening: Chamber Music",
+          "startDate": "2025-11-22T19:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Gasteig HP8",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1150,
+              "longitude": 11.5550
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_01_student",
+      "name": "Alex",
+      "role": "Student",
+      "current_location": { "name": "Home (Schwabing)", "lat": 48.1500, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "ELEVATED",
+        "availability": "BUSY_BUT_ENDING_SOON",
+        "current_focus": "Studying"
+      },
+      "social_graph_snapshot": [
+         { "target_id": "user_03_expat", "relation": "Friend", "status": "GOOD", "last_contact_days": 3 }
+      ]
+    },
+    {
+      "user_id": "user_02_retired",
+      "name": "Hans",
+      "role": "Retired",
+      "current_location": { "name": "Home (Lehel)", "lat": 48.1351, "lon": 11.5820 },
+      "sentry_analysis": {
+        "stress_level": "MODERATE",
+        "availability": "FREE",
+        "risk_flags": ["ISOLATION_RISK"]
+      },
+      "social_graph_snapshot": [
+         { "target_id": "user_04_exec", "relation": "Son", "status": "CRITICAL_DISCONNECT", "last_contact_days": 25 }
+      ]
+    },
+    {
+      "user_id": "user_03_expat",
+      "name": "Priya",
+      "role": "Expat",
+      "current_location": { "name": "Lost Weekend Cafe", "lat": 48.1490, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "OPTIMAL",
+        "availability": "FREE"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_01_student", "relation": "Friend", "status": "GOOD" }
+      ]
+    },
+    {
+      "user_id": "user_04_exec",
+      "name": "Marcus",
+      "role": "Executive",
+      "current_location": { "name": "In Transit (Mittlerer Ring)", "lat": 48.1400, "lon": 11.6000 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "TRANSITIONING",
+        "current_focus": "Commuting"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_02_retired", "relation": "Father", "status": "CRITICAL_DISCONNECT" }
+      ]
+    },
+    {
+      "user_id": "user_05_parent",
+      "name": "Lisa",
+      "role": "Parent",
+      "current_location": { "name": "Home (Neuhausen)", "lat": 48.1600, "lon": 11.5500 },
+      "sentry_analysis": {
+        "stress_level": "FATIGUED",
+        "availability": "BUSY"
+      },
+      "social_graph_snapshot": []
+    }
+  ]
+}

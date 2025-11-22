@@ -1,0 +1,81 @@
+{
+  "schema_name": "scout_agent_input_payload",
+  "description": "High-level, categorical abstraction of the world state for The Scout to identify social and wellness opportunities.",
+  "definitions": {
+    "environmental_context": {
+      "description": "The feasibility of logistics based on weather and traffic.",
+      "fields": {
+        "outdoor_viability": [
+          "OPTIMAL",            // Sunny, warm, perfect for parks
+          "VIABLE_WITH_GEAR",   // Cloudy, cool, maybe light drizzle
+          "INDOOR_ONLY"         // Heavy rain, extreme cold, high wind
+        ],
+        "transit_friction": [
+          "LOW_FRICTION",       // No traffic, easy movement
+          "MODERATE_DELAY",     // Rush hour, but moving
+          "HIGH_FRICTION",      // Gridlock, major transit failures
+          "BLOCKED"             // Impossible to travel reasonably
+        ],
+        "temporal_phase": [
+          "WORK_HOURS",
+          "EVENING_TRANSITION", // The "Commute/Dinner" gap
+          "PRIME_SOCIAL_TIME",  // 19:00 - 22:00
+          "LATE_NIGHT"
+        ]
+      }
+    },
+    "user_state_abstraction": {
+      "description": "Normalized state of a user relevant to making plans.",
+      "fields": {
+        "availability_status": [
+          "AVAILABLE_NOW",
+          "AVAILABLE_SOON",     // Ending current task < 30 mins
+          "BUSY_UNAVAILABLE"
+        ],
+        "wellness_need": [
+          "STRESS_RELIEF",      // Needs calming or high-exertion activity
+          "SOCIAL_CONNECTION",  // Needs people
+          "REST_RECOVERY",      // Needs to do nothing
+          "MAINTENANCE"         // Doing fine
+        ],
+        "location_context": [
+          "HOME_BASE",
+          "WORK_OFFICE",
+          "THIRD_PLACE",        // Cafe, Park, Gym
+          "IN_TRANSIT"
+        ]
+      }
+    },
+    "relationship_signals": {
+      "description": "Actionable insights from the social graph.",
+      "fields": {
+        "connection_health": [
+          "HEALTHY",
+          "DRIFTING",           // > 2 weeks no contact
+          "CRITICAL_DISCONNECT" // > 4 weeks or 'Risk Flag' from Sentry
+        ],
+        "proximity_opportunity": [
+          "CO_LOCATED",         // Same building/park
+          "WALKING_DISTANCE",   // < 1km
+          "SAME_DISTRICT",      // Requires short transit
+          "DISTANT"             // Requires commute
+        ]
+      }
+    },
+    "opportunity_feed": {
+      "description": "Curated list of potential activities.",
+      "fields": {
+        "activity_type": [
+          "ACTIVE_PHYSICAL",    // Sports, Walks
+          "SOCIAL_GATHERING",   // Drinks, Dinner
+          "CULTURAL_PASSIVE",   // Movies, Concerts
+          "COMMUNITY_SUPPORT"   // Helping neighbors
+        ],
+        "environment_match": [
+          "MATCHES_CURRENT_CONDITIONS",
+          "MISMATCH"            // e.g., Outdoor event during rain
+        ]
+      }
+    }
+  }
+}

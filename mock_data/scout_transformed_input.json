@@ -1,0 +1,96 @@
+{
+  "global_context": {
+    "outdoor_viability": "INDOOR_ONLY",
+    "transit_friction": "HIGH_FRICTION",
+    "temporal_phase": "EVENING_TRANSITION",
+    "implication": "Prioritize digital connections, home-based activities, or very local (walking distance) indoor events. Discourage cross-town travel."
+  },
+  "user_cluster_map": [
+    {
+      "user_id": "user_01_student",
+      "availability_status": "AVAILABLE_SOON",
+      "wellness_need": "STRESS_RELIEF",
+      "location_context": "HOME_BASE",
+      "neighborhood": "Schwabing"
+    },
+    {
+      "user_id": "user_02_retired",
+      "availability_status": "AVAILABLE_NOW",
+      "wellness_need": "SOCIAL_CONNECTION",
+      "location_context": "HOME_BASE",
+      "neighborhood": "Lehel"
+    },
+    {
+      "user_id": "user_03_expat",
+      "availability_status": "AVAILABLE_NOW",
+      "wellness_need": "MAINTENANCE",
+      "location_context": "THIRD_PLACE",
+      "neighborhood": "Schwabing-West"
+    },
+    {
+      "user_id": "user_04_exec",
+      "availability_status": "AVAILABLE_SOON",
+      "wellness_need": "REST_RECOVERY",
+      "location_context": "IN_TRANSIT",
+      "neighborhood": "Transit_Corridor_East"
+    },
+    {
+      "user_id": "user_05_parent",
+      "availability_status": "BUSY_UNAVAILABLE",
+      "wellness_need": "REST_RECOVERY",
+      "location_context": "HOME_BASE",
+      "neighborhood": "Neuhausen"
+    }
+  ],
+  "relationship_frictions": [
+    {
+      "source_user": "user_04_exec",
+      "target_user": "user_02_retired",
+      "relationship_type": "PARENT_CHILD",
+      "connection_health": "CRITICAL_DISCONNECT",
+      "proximity_opportunity": "DISTANT",
+      "scout_hint": "High Friction Travel + Critical Disconnect = Suggest Phone/Video Call."
+    },
+    {
+      "source_user": "user_01_student",
+      "target_user": "user_03_expat",
+      "relationship_type": "FRIEND",
+      "connection_health": "HEALTHY",
+      "proximity_opportunity": "WALKING_DISTANCE",
+      "scout_hint": "Healthy connection + nearby + 'Indoor Only' weather = Suggest local indoor hangout."
+    }
+  ],
+  "curated_opportunity_feed": [
+    {
+      "event_id": "evt_mu_882",
+      "title": "Munich English Speakers Dinner",
+      "activity_type": "SOCIAL_GATHERING",
+      "environment_match": "MATCHES_CURRENT_CONDITIONS",
+      "location_context": "Haidhausen",
+      "suitability": {
+        "user_03_expat": "HIGH",
+        "user_01_student": "MEDIUM"
+      }
+    },
+    {
+      "event_id": "evt_eb_101",
+      "title": "Late Night Bouldering Session",
+      "activity_type": "ACTIVE_PHYSICAL",
+      "environment_match": "MATCHES_CURRENT_CONDITIONS",
+      "location_context": "Berg am Laim",
+      "suitability": {
+        "user_01_student": "HIGH"
+      }
+    },
+    {
+      "event_id": "evt_nb_55",
+      "title": "Neuhausen Parents Walking Group",
+      "activity_type": "COMMUNITY_SUPPORT",
+      "environment_match": "MISMATCH",
+      "reason": "Outdoor event during Rain",
+      "suitability": {
+        "user_05_parent": "LOW"
+      }
+    }
+  ]
+}

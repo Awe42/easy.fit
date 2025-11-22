@@ -1,0 +1,78 @@
+{
+    "user_profile": {
+        "user_id": "user_04_exec",
+        "name": "Marcus",
+        "role": "Busy Executive",
+        "age": 45,
+        "traits": ["High Stress", "Packed Schedule", "Neglects Family"],
+        "base_location": {"lat": 48.1400, "lon": 11.5700}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 98,
+                    "resting_hr_bpm": 65,
+                    "max_hr_bpm": 110
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 92,
+                "analysis": "HIGH",
+                "stress_duration_seconds": 25000
+            },
+            "scores": {
+                "sleep": 50,
+                "recovery": 25,
+                "activity": 30
+            },
+            "distance_data": {
+                "steps": 3500
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 10.5,
+        "productivity_pulse": 85,
+        "top_activities": [
+            {"name": "Microsoft Outlook", "category": "Email", "time_spent_seconds": 14400},
+            {"name": "Zoom", "category": "Meeting", "time_spent_seconds": 10800},
+            {"name": "Excel", "category": "Business", "time_spent_seconds": 7200}
+        ]
+    },
+    "gcal": {
+        "summary": "Marcus's Calendar",
+        "items": [
+            {
+                "summary": "Q4 Strategy Review",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-22T14:00:00+01:00" },
+                "end": { "dateTime": "2025-11-22T16:00:00+01:00" }
+            },
+            {
+                "summary": "Client Dinner",
+                "status": "tentative",
+                "start": { "dateTime": "2025-11-22T19:00:00+01:00" },
+                "end": { "dateTime": "2025-11-22T21:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Office - Munich Center",
+                        "latitudeE7": 481400000,
+                        "longitudeE7": 115700000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T08:00:00Z",
+                        "endTimestamp": "2025-11-22T18:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+}
