@@ -1,0 +1,184 @@
+{
+  "schema_name": "orchestrator_output_payload",
+  "description": "Finalized, validated schedule output from The Orchestrator after synthesizing Sentry and Scout inputs.",
+  "output_structure": {
+    "scheduled_activities": {
+      "type": "array",
+      "description": "List of activities that passed validation against user constraints.",
+      "items": {
+        "type": "object",
+        "required": ["action", "date", "time", "participants", "activity", "selection_reason"],
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "SCHEDULED_CALL",
+              "EVENT_RESERVATION",
+              "LOCATION_VISIT",
+              "CALENDAR_EVENT",
+              "ENVIRONMENTAL_RESET",
+              "RESOURCE_PROVISIONING"
+            ],
+            "description": "The type of action to be executed."
+          },
+          "date": {
+            "type": "string",
+            "format": "YYYY-MM-DD",
+            "description": "The date of the scheduled activity."
+          },
+          "time": {
+            "type": "string",
+            "description": "The time of the activity in HH:MM format, or 'IMMEDIATE' for urgent actions.",
+            "examples": ["14:30", "20:00", "IMMEDIATE"]
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of user IDs involved in the activity."
+          },
+          "activity": {
+            "type": "string",
+            "description": "Clean, human-readable name of the activity in Title Case.",
+            "examples": ["Voice Call with Hans", "Bouldering at Block House", "Coffee at Englischer Garten"]
+          },
+          "location": {
+            "type": "string",
+            "description": "Optional: Specific location or venue for the activity.",
+            "optional": true
+          },
+          "selection_reason": {
+            "type": "string",
+            "description": "Explanation of why this activity passed validation, referencing both Sentry needs and Scout opportunities.",
+            "examples": [
+              "Matches Sentry need for Social Bridging; Safe for current mobility level; Addresses critical disconnect with Hans.",
+              "Aligns with Sentry recommendation for Stress Relief; Event is indoor (matches weather constraints); User is available now."
+            ]
+          },
+          "sentry_alignment": {
+            "type": "object",
+            "description": "Optional: Detailed alignment with Sentry assessment.",
+            "optional": true,
+            "properties": {
+              "addresses_risk": {
+                "type": "string",
+                "description": "The primary risk from Sentry that this activity addresses."
+              },
+              "matches_action_type": {
+                "type": "string",
+                "description": "The recommended_action_type from Sentry that this aligns with."
+              },
+              "urgency_level": {
+                "type": "string",
+                "enum": ["NONE", "LOW", "MEDIUM", "HIGH"],
+                "description": "The intervention urgency from Sentry."
+              }
+            }
+          },
+          "scout_source": {
+            "type": "object",
+            "description": "Optional: Reference to the Scout opportunity that generated this activity.",
+            "optional": true,
+            "properties": {
+              "opportunity_type": {
+                "type": "string",
+                "enum": ["RELATIONSHIP_BRIDGE", "SPONTANEOUS_MEETUP", "EVENT_DISCOVERY"]
+              },
+              "priority": {
+                "type": "string",
+                "enum": ["HIGH", "MEDIUM", "LOW"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "rejected_opportunities": {
+      "type": "array",
+      "description": "Optional: List of Scout opportunities that were rejected with reasons.",
+      "optional": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "opportunity_type": {
+            "type": "string"
+          },
+          "rejection_reason": {
+            "type": "string",
+            "description": "Why this opportunity was rejected (e.g., 'Exceeds user exertion capacity', 'Conflicts with high stress state')."
+          }
+        }
+      }
+    },
+    "system_notes": {
+      "type": "object",
+      "description": "Optional: Additional context for logging or debugging.",
+      "optional": true,
+      "properties": {
+        "sentry_status": {
+          "type": "string",
+          "enum": ["GREEN", "YELLOW", "RED"]
+        },
+        "opportunities_evaluated": {
+          "type": "number",
+          "description": "Total number of Scout opportunities evaluated."
+        },
+        "opportunities_approved": {
+          "type": "number",
+          "description": "Number of opportunities that passed validation."
+        }
+      }
+    }
+  },
+  "example_output": {
+    "scheduled_activities": [
+      {
+        "action": "SCHEDULED_CALL",
+        "date": "2025-11-22",
+        "time": "IMMEDIATE",
+        "participants": ["retired_hans_01", "user_sarah_02"],
+        "activity": "Voice Call with Sarah",
+        "selection_reason": "Matches Sentry need for Social Bridging (critical disconnect detected); Safe for current high-stress state (passive social connection); Transit friction prevents physical meetup.",
+        "sentry_alignment": {
+          "addresses_risk": "Social isolation compounding stress",
+          "matches_action_type": "SOCIAL_BRIDGING",
+          "urgency_level": "HIGH"
+        },
+        "scout_source": {
+          "opportunity_type": "RELATIONSHIP_BRIDGE",
+          "priority": "HIGH"
+        }
+      },
+      {
+        "action": "LOCATION_VISIT",
+        "date": "2025-11-22",
+        "time": "17:30",
+        "participants": ["retired_hans_01"],
+        "activity": "Walk in Englischer Garten",
+        "location": "Englischer Garten, München",
+        "selection_reason": "Matches Sentry recommendation for Routine Intervention; Weather is favorable; User mobility is moderate (suitable for gentle walk); Provides nature exposure for stress relief.",
+        "sentry_alignment": {
+          "addresses_risk": "Sedentary behavior pattern at home",
+          "matches_action_type": "ROUTINE_INTERVENTION",
+          "urgency_level": "MEDIUM"
+        },
+        "scout_source": {
+          "opportunity_type": "EVENT_DISCOVERY",
+          "priority": "MEDIUM"
+        }
+      }
+    ],
+    "rejected_opportunities": [
+      {
+        "opportunity_type": "EVENT_DISCOVERY",
+        "rejection_reason": "Bouldering session rejected: User exertion_status is SEDENTARY and stress_level is ELEVATED; high-intensity activity inappropriate."
+      }
+    ],
+    "system_notes": {
+      "sentry_status": "YELLOW",
+      "opportunities_evaluated": 3,
+      "opportunities_approved": 2
+    }
+  }
+}
