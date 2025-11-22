@@ -1,350 +1,187 @@
 {
-  "user_profile": {
-    "age": 74,
-    "occupation": "Retired Architect",
-    "baselines": {
-      "avg_daily_steps": 4500,
-      "usual_wake_time": "07:00",
-      "usual_locations": ["Home", "Bakery", "Park Bench"]
-    }
-  },
-  "calendar_context": {
-    "past_7_days": [],
-    "upcoming_7_days": [
-      { "title": "Cardiologist Appt", "time": "2025-11-25T10:00:00", "category": "Health" }
-    ]
-  },
-  "screen_time_history": {
-    "avg_daily_hours": 3.5,
-    "most_used_apps": ["WhatsApp", "News App", "Solitaire"],
-    "communication_pattern": "Usually calls daughter on Sundays"
-  },
-  "current_state_snapshot": {
-    "timestamp": "Tuesday 15:00",
-    "location_label": "Home",
-    "time_at_location_hours": 72,
-    "steps_today": 450,
-    "screen_time_today": 6.5,
-    "active_app": "Solitaire",
-    "last_outgoing_call_days_ago": 5
-  },
-  "health_data_terra": {
-    "user": {
-        "user_id": "123e4567-e89b-12d3-a456-426614174000",
-        "provider": "FITBIT",
-        "last_webhook_update": "2022-12-12T10:00:00.000000+00:00",
-        "scopes": "activity:read,sleep:read",
-        "reference_id": "user123@email.com",
-        "active": true
+    "user_profile": {
+        "age": 74,
+        "occupation": "Retired Architect",
+        "baselines": {
+            "avg_daily_steps": 4500,
+            "usual_wake_time": "07:00",
+            "usual_locations": [
+                "Home",
+                "Bakery",
+                "Park Bench"
+            ]
+        }
     },
-    "data": [
-        {
-        "active_durations_data": {
-            "activity_levels_samples": [
+    "calendar_context": {
+        "past_7_days": [],
+        "upcoming_7_days": [
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "level": 4
+                "title": "Cardiologist Appt",
+                "time": "2025-11-25T10:00:00",
+                "category": "Health"
             }
-            ],
-            "activity_seconds": 1800,
-            "inactivity_seconds": 600,
-            "low_intensity_seconds": 900,
-            "moderate_intensity_seconds": 600,
-            "num_continuous_inactive_periods": 3,
-            "rest_seconds": 120,
-            "vigorous_intensity_seconds": 300,
-            "standing_hours_count": 1,
-            "standing_seconds": 1
+        ]
+    },
+    "screen_time_history": {
+        "avg_daily_hours": 3.5,
+        "most_used_apps": [
+            "WhatsApp",
+            "News App",
+            "Solitaire"
+        ],
+        "communication_pattern": "Usually calls daughter on Sundays"
+    },
+    "current_state_snapshot": {
+        "timestamp": "Tuesday 15:00",
+        "location_label": "Home",
+        "time_at_location_hours": 72,
+        "steps_today": 450,
+        "screen_time_today": 6.5,
+        "active_app": "Solitaire",
+        "last_outgoing_call_days_ago": 5
+    },
+    "health_data_terra": {
+        "meta": {
+            "timestamp": "2025-11-22T14:15:00+01:00",
+            "description": "Unified payload for Hackathon Sentry Agent. Aggregates Daily, Body, and Menstruation endpoints."
         },
-        "calories_data": {
-            "BMR_calories": 1,
-            "calorie_samples": [
-            {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "calories": 1,
-                "timer_duration_seconds": 1
-            }
-            ],
-            "net_activity_calories": 1,
-            "net_intake_calories": 1,
-            "total_burned_calories": 1
+        "user": {
+            "user_id": "12345-terra-sarah",
+            "provider": "GARMIN",
+            "region": "EU"
         },
-        "cheat_detection": 0,
-        "data_enrichment": {
-            "stress_score": 1
-        },
-        "device_data": {
-            "activation_timestamp": "2022-12-25T00:00:00.000000+05:00",
-            "data_provided": [
-            "text"
-            ],
-            "hardware_version": "v2.1",
-            "last_upload_date": "text",
-            "manufacturer": "Garmin",
-            "name": "Forerunner 945",
-            "other_devices": [
-            {
-                "manufacturer": "Garmin",
-                "hardware_version": "v2.1",
-                "serial_number": "GR123456789",
-                "name": "Forerunner 945",
-                "software_version": "5.2.1",
-                "activation_timestamp": "text",
-                "data_provided": [
-                "text"
-                ],
-                "last_upload_date": "text"
-            }
-            ],
-            "sensor_state": "text",
-            "serial_number": "GR123456789",
-            "software_version": "5.2.1"
-        },
-        "distance_data": {
-            "detailed": {
-            "distance_samples": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "distance_meters": 2500,
-                "timer_duration_seconds": 900
-                }
-            ],
-            "elevation_samples": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "elev_meters": 925,
-                "timer_duration_seconds": 1200
-                }
-            ],
-            "floors_climbed_samples": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "floors_climbed": 5,
-                "timer_duration_seconds": 600
-                }
-            ],
-            "step_samples": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "steps": 1,
-                "timer_duration_seconds": 1
-                }
-            ]
+        "current_daily_snapshot": {
+            "summary_id": "daily-summary-2025-11-22",
+            "upload_type": 0,
+            "distance_data": {
+                "steps": 4512,
+                "distance_meters": 3200.5,
+                "elevation_gain_meters": 12.5
             },
-            "summary": {
-            "distance_meters": 1,
-            "elevation": {
-                "avg_meters": 950,
-                "gain_actual_meters": 550,
-                "gain_planned_meters": 500,
-                "loss_actual_meters": 450,
-                "max_meters": 1200,
-                "min_meters": 800
+            "calories_data": {
+                "net_activity_calories": 450,
+                "BMR_calories": 1400,
+                "total_burned_calories": 1850
             },
-            "floors_climbed": 1,
-            "steps": 1,
-            "swimming": {
-                "num_laps": 20,
-                "num_strokes": 500,
-                "pool_length_meters": 25
-            }
-            }
-        },
-        "energy_data": {
-            "energy_kilojoules": 1200,
-            "energy_planned_kilojoules": 1150
-        },
-        "heart_rate_data": {
-            "detailed": {
-            "hr_samples": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "bpm": 142,
-                "timer_duration_seconds": 600,
-                "context": 1
+            "heart_rate_data": {
+                "summary": {
+                    "max_hr_bpm": 115,
+                    "min_hr_bpm": 62,
+                    "avg_hr_bpm": 88,
+                    "resting_hr_bpm": 68
+                },
+                "detailed": {
+                    "hr_samples": [
+                        {
+                            "timestamp": "2025-11-22T13:45:00+01:00",
+                            "bpm": 85
+                        },
+                        {
+                            "timestamp": "2025-11-22T14:00:00+01:00",
+                            "bpm": 92
+                        },
+                        {
+                            "timestamp": "2025-11-22T14:15:00+01:00",
+                            "bpm": 102
+                        }
+                    ]
                 }
-            ],
-            "hrv_samples_rmssd": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "hrv_rmssd": 42.1
-                }
-            ],
-            "hrv_samples_sdnn": [
-                {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "hrv_sdnn": 48.3
-                }
-            ]
             },
-            "summary": {
-            "avg_hr_bpm": 145,
-            "avg_hrv_rmssd": 35.2,
-            "avg_hrv_sdnn": 45.5,
-            "hr_zone_data": [
-                {
-                "zone": 2,
-                "start_percentage": 60,
-                "end_percentage": 70,
-                "name": "Aerobic",
-                "duration_seconds": 300
-                }
+            "stress_data": {
+                "avg_stress_level": 78,
+                "max_stress_level": 95,
+                "stress_duration_seconds": 18000,
+                "rest_stress_duration_seconds": 2000,
+                "analysis": "High Stress Detected"
+            },
+            "scores": {
+                "recovery": 35,
+                "activity": 40,
+                "sleep": 60
+            }
+        },
+        "body_metrics_latest": {
+            "timestamp": "2025-11-22T07:30:00+01:00",
+            "weight_data": {
+                "weight_kg": 68.5,
+                "bmi": 22.4
+            },
+            "hydration_data": {
+                "hydration_level_percentage": 48,
+                "day_total_water_ml": 450,
+                "status": "DEHYDRATED"
+            },
+            "measurements_data": {
+                "blood_pressure_diastolic": 82,
+                "blood_pressure_systolic": 124
+            }
+        },
+        "menstruation_status": {
+            "period_start_date": "2025-11-01",
+            "current_phase": 3,
+            "current_phase_string": "LUTEAL_PHASE",
+            "day_in_cycle": 22,
+            "cycle_length_days": 28,
+            "symptoms": [
+                "fatigue",
+                "mood_swings",
+                "bloating"
             ],
-            "max_hr_bpm": 180,
-            "min_hr_bpm": 85,
-            "resting_hr_bpm": 65,
-            "user_max_hr_bpm": 190
+            "prediction": {
+                "next_period_start": "2025-11-29",
+                "fertile_window_start": "2025-11-12"
             }
         },
-        "lap_data": {
-            "laps": [
+        "historical_7_days": [
             {
-                "calories": 50,
-                "avg_hr_bpm": 145,
-                "start_time": "1999-11-23T09:00:00.000000+02:00",
-                "avg_speed_meters_per_second": 3.5,
-                "distance_meters": 400,
-                "total_strokes": 20,
-                "end_time": "2022-10-28T10:00:00.000000+01:00",
-                "stroke_type": "freestyle"
-            }
-            ]
-        },
-        "MET_data": {
-            "MET_samples": [
+                "date": "2025-11-21",
+                "steps": 5200,
+                "avg_hr": 75,
+                "avg_stress": 65,
+                "sleep_score": 55
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "level": 1
-            }
-            ],
-            "avg_level": 3.8,
-            "num_high_intensity_minutes": 10,
-            "num_inactive_minutes": 5,
-            "num_low_intensity_minutes": 15,
-            "num_moderate_intensity_minutes": 25
-        },
-        "metadata": {
-            "city": "San Francisco",
-            "country": "United States",
-            "end_time": "2022-10-28T10:00:00.000000+01:00",
-            "name": "Morning Run",
-            "start_time": "1999-11-23T09:00:00.000000+02:00",
-            "state": "California",
-            "summary_id": "123e4567-e89b-12d3-a456-426614174000",
-            "timestamp_localization": 0,
-            "type": 8,
-            "upload_type": 1
-        },
-        "movement_data": {
-            "adjusted_max_speed_meters_per_second": 4.2,
-            "avg_cadence_rpm": 85,
-            "avg_pace_minutes_per_kilometer": 6.2,
-            "avg_speed_meters_per_second": 3.2,
-            "avg_torque_newton_meters": 40,
-            "avg_velocity_meters_per_second": 3,
-            "cadence_samples": [
+                "date": "2025-11-20",
+                "steps": 4800,
+                "avg_hr": 78,
+                "avg_stress": 70,
+                "sleep_score": 50
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "cadence_rpm": 1,
-                "timer_duration_seconds": 1
-            }
-            ],
-            "max_cadence_rpm": 110,
-            "max_pace_minutes_per_kilometer": 6.5,
-            "max_speed_meters_per_second": 4.5,
-            "max_torque_newton_meters": 55.5,
-            "max_velocity_meters_per_second": 4.5,
-            "normalized_speed_meters_per_second": 3.8,
-            "speed_samples": [
+                "date": "2025-11-19",
+                "steps": 6000,
+                "avg_hr": 72,
+                "avg_stress": 60,
+                "sleep_score": 65
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "speed_meters_per_second": 1,
-                "timer_duration_seconds": 1
-            }
-            ],
-            "torque_samples": [
+                "date": "2025-11-18",
+                "steps": 8500,
+                "avg_hr": 68,
+                "avg_stress": 45,
+                "sleep_score": 75
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "timer_duration_seconds": 300,
-                "torque_newton_meters": 45.5
-            }
-            ]
-        },
-        "oxygen_data": {
-            "avg_saturation_percentage": 98,
-            "saturation_samples": [
+                "date": "2025-11-17",
+                "steps": 9200,
+                "avg_hr": 65,
+                "avg_stress": 40,
+                "sleep_score": 80
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "percentage": 98,
-                "type": 0
-            }
-            ],
-            "vo2_samples": [
+                "date": "2025-11-16",
+                "steps": 3500,
+                "avg_hr": 62,
+                "avg_stress": 30,
+                "sleep_score": 85
+            },
             {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "vo2max_ml_per_min_per_kg": 45.5
+                "date": "2025-11-15",
+                "steps": 12000,
+                "avg_hr": 110,
+                "avg_stress": 35,
+                "sleep_score": 82
             }
-            ],
-            "vo2max_ml_per_min_per_kg": 45.5
-        },
-        "polyline_map_data": {
-            "summary_polyline": "}_p~iF~ps|U_ulLnnqC_mqNvxq`@"
-        },
-        "position_data": {
-            "center_pos_lat_lng_deg": [
-            -18.4911,
-            130.9123
-            ],
-            "end_pos_lat_lng_deg": [
-            -84.4911,
-            -150.9123
-            ],
-            "position_samples": [
-            {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "coords_lat_lng_deg": [
-                -18.4911,
-                130.9123
-                ],
-                "timer_duration_seconds": 300
-            }
-            ],
-            "start_pos_lat_lng_deg": [
-            80.2394,
-            102.931
-            ]
-        },
-        "power_data": {
-            "avg_watts": 185,
-            "max_watts": 350,
-            "power_samples": [
-            {
-                "timestamp": "2022-11-23T09:00:00.000000+02:00",
-                "watts": 250,
-                "timer_duration_seconds": 1800
-            }
-            ]
-        },
-        "strain_data": {
-            "strain_level": 14.5
-        },
-        "TSS_data": {
-            "TSS_samples": [
-            {
-                "planned": 1,
-                "actual": 1,
-                "method": "text",
-                "intensity_factor_planned": 1,
-                "intensity_factor_actual": 1,
-                "normalized_power_watts": 1
-            }
-            ]
-        },
-        "work_data": {
-            "work_kilojoules": 450.5
-        }
-        }
-    ],
-    "type": null
+        ]
     }
 }
