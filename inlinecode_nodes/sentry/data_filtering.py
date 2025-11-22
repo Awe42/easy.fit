@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 # Extract stress-related health data from sentry_input_data
 def extract_stress_indicators(data):
@@ -12,54 +13,41 @@ def extract_stress_indicators(data):
     - Blood pressure (can be elevated due to stress)
     - Hydration status (dehydration can affect stress)
     - Activity patterns (deviations from baseline)
-    - Screen time (excessive use may indicate stress/isolation)
+    - Screen time and productivity (excessive use may indicate stress/isolation)
+    - Location patterns (isolation indicators)
+    - Calendar events (upcoming stressors)
+    
+    Output JSON keys:
+    - timestamp: ISO timestamp of the data collection
+    - user_age: User's age (demographic context)
+    - occupation: User's occupation (demographic context)
+    - stress_data: Direct stress measurements including avg/max stress levels, duration, and analysis
+    - heart_rate: Heart rate summary (max, min, avg, resting), recent samples, HR range, and elevation above resting
+    - health_scores: Recovery, activity, and sleep scores from wearable device
+    - blood_pressure: Systolic and diastolic blood pressure with timestamp
+    - hydration: Hydration level percentage, daily water intake, and status (e.g., DEHYDRATED)
+    - menstruation_status: Current cycle phase, day in cycle, and symptoms (if applicable)
+    - historical_trends: 7-day averages for stress, heart rate, and sleep score, plus daily data array
+    - upcoming_health_appointments: List of upcoming health-related calendar events (if applicable)
+    - productivity_analysis: Screen time productivity metrics including pulse score, total hours, category breakdown, top activities, and unproductive time
+    - upcoming_events: List of upcoming calendar events with summary, status, description, start time, and location
+    - location_patterns: Number of places visited, time spent at home, and current location
     """
     
     stress_indicators = {}
     
     # Get timestamp for context
-    if "health_data_terra" in data and "meta" in data["health_data_terra"]:
-        stress_indicators["timestamp"] = data["health_data_terra"]["meta"].get("timestamp")
+    if "terra" in data and "meta" in data["terra"]:
+        stress_indicators["timestamp"] = data["terra"]["meta"].get("timestamp")
     
     # User context
     if "user_profile" in data:
         stress_indicators["user_age"] = data["user_profile"].get("age")
         stress_indicators["occupation"] = data["user_profile"].get("occupation")
     
-    # Current state snapshot - behavioral stress indicators
-    if "current_state_snapshot" in data:
-        snapshot = data["current_state_snapshot"]
-        stress_indicators["current_state"] = {
-            "timestamp": snapshot.get("timestamp"),
-            "time_at_location_hours": snapshot.get("time_at_location_hours"),  # Prolonged isolation
-            "steps_today": snapshot.get("steps_today"),
-            "screen_time_today": snapshot.get("screen_time_today"),  # Excessive screen time
-            "last_outgoing_call_days_ago": snapshot.get("last_outgoing_call_days_ago")  # Social isolation
-        }
-        
-        # Check deviation from baseline
-        if "user_profile" in data and "baselines" in data["user_profile"]:
-            baseline_steps = data["user_profile"]["baselines"].get("avg_daily_steps")
-            if baseline_steps:
-                stress_indicators["current_state"]["steps_deviation_from_baseline"] = (
-                    snapshot.get("steps_today", 0) - baseline_steps
-                )
-    
-    # Screen time patterns (stress indicator)
-    if "screen_time_history" in data:
-        screen_history = data["screen_time_history"]
-        current_screen = data.get("current_state_snapshot", {}).get("screen_time_today")
-        avg_screen = screen_history.get("avg_daily_hours")
-        
-        stress_indicators["screen_time_analysis"] = {
-            "avg_daily_hours": avg_screen,
-            "today_hours": current_screen,
-            "deviation_hours": (current_screen - avg_screen) if (current_screen and avg_screen) else None
-        }
-    
     # Health data from Terra API
-    if "health_data_terra" in data:
-        terra_data = data["health_data_terra"]
+    if "terra" in data:
+        terra_data = data["terra"]
         
         # Current daily snapshot
         if "current_daily_snapshot" in terra_data:
@@ -137,11 +125,80 @@ def extract_stress_indicators(data):
         if health_appointments:
             stress_indicators["upcoming_health_appointments"] = health_appointments
     
+    # RescueTime - screen time and productivity (stress indicator)
+    if "rescuetime" in data:
+        rescue_data = data["rescuetime"]
+        stress_indicators["productivity_analysis"] = {
+            "productivity_pulse": rescue_data.get("productivity_pulse"),
+            "total_hours": rescue_data.get("total_hours"),
+            "category_breakdown": rescue_data.get("category_breakdown", []),
+            "top_activities": rescue_data.get("top_activities", [])
+        }
+        
+        # Flag excessive unproductive time
+        category_breakdown = rescue_data.get("category_breakdown", [])
+        unproductive_time = sum(
+            cat.get("time_spent_seconds", 0) 
+            for cat in category_breakdown 
+            if cat.get("productivity_score", 0) < 0
+        )
+        stress_indicators["productivity_analysis"]["unproductive_time_hours"] = unproductive_time / 3600
+    
+    # Google Calendar - upcoming events (potential stressors)
+    if "gcal" in data and "items" in data["gcal"]:
+        events = data["gcal"]["items"]
+        stress_indicators["upcoming_events"] = []
+        
+        for event in events:
+            event_info = {
+                "summary": event.get("summary"),
+                "status": event.get("status"),
+                "description": event.get("description"),
+                "start": event.get("start", {}).get("dateTime"),
+                "location": event.get("location")
+            }
+            stress_indicators["upcoming_events"].append(event_info)
+    
+    # Google Maps - location patterns (isolation indicator)
+    if "gmaps" in data and "timelineObjects" in data["gmaps"]:
+        timeline = data["gmaps"]["timelineObjects"]
+        
+        # Calculate time at home
+        home_time_hours = 0
+        total_places = 0
+        current_location = None
+        
+        for obj in timeline:
+            if "placeVisit" in obj:
+                place = obj["placeVisit"]
+                location = place.get("location", {})
+                duration = place.get("duration", {})
+                
+                if place.get("isCurrentLocation"):
+                    current_location = location.get("name")
+                
+                # Calculate duration
+                if "startTimestamp" in duration and "endTimestamp" in duration:
+                    start = datetime.fromisoformat(duration["startTimestamp"].replace("Z", "+00:00"))
+                    end = datetime.fromisoformat(duration["endTimestamp"].replace("Z", "+00:00"))
+                    hours = (end - start).total_seconds() / 3600
+                    
+                    if location.get("name") == "Home":
+                        home_time_hours += hours
+                
+                total_places += 1
+        
+        stress_indicators["location_patterns"] = {
+            "total_places_visited": total_places,
+            "home_time_hours": round(home_time_hours, 2),
+            "current_location": current_location
+        }
+    
     return stress_indicators
 
 ############ TESTING ############
 # Load test data:
-# with open("../mock_data/sentry_input_test_01_retired_person.json", "r") as f:
+# with open("../../mock_data/sentry_input_test_01_retired_person.json", "r") as f:
 #     sentry_input_data = f.read()
 #################################
 
