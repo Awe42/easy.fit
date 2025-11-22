@@ -1,0 +1,265 @@
+{
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_04_exec",
+        "name": "Marcus",
+        "role": "Busy Executive",
+        "age": 45,
+        "traits": ["High Stress", "Packed Schedule", "Neglects Family"],
+        "base_location": {"lat": 48.1400, "lon": 11.5700}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 98,
+                    "resting_hr_bpm": 65,
+                    "max_hr_bpm": 110
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 92,
+                "analysis": "HIGH",
+                "stress_duration_seconds": 25000
+            },
+            "scores": {
+                "sleep": 50,
+                "recovery": 25,
+                "activity": 30
+            },
+            "distance_data": {
+                "steps": 3500
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 10.5,
+        "productivity_pulse": 85,
+        "top_activities": [
+            {"name": "Microsoft Outlook", "category": "Email", "time_spent_seconds": 14400},
+            {"name": "Zoom", "category": "Meeting", "time_spent_seconds": 10800},
+            {"name": "Excel", "category": "Business", "time_spent_seconds": 7200}
+        ]
+    },
+    "gcal": {
+        "summary": "Marcus's Calendar",
+        "items": [
+            {
+                "summary": "Q4 Strategy Review",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-22T14:00:00+01:00" },
+                "end": { "dateTime": "2025-11-22T16:00:00+01:00" }
+            },
+            {
+                "summary": "Client Dinner",
+                "status": "tentative",
+                "start": { "dateTime": "2025-11-22T19:00:00+01:00" },
+                "end": { "dateTime": "2025-11-22T21:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Office - Munich Center",
+                        "latitudeE7": 481400000,
+                        "longitudeE7": 115700000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T08:00:00Z",
+                        "endTimestamp": "2025-11-22T18:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1400,
+      "lon": 11.5700,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 17.5,
+        "feels_like": 16.8,
+        "pressure": 1014,
+        "humidity": 68,
+        "dew_point": 11.4,
+        "uvi": 2,
+        "clouds": 50,
+        "visibility": 9000,
+        "wind_speed": 3.5,
+        "wind_deg": 240,
+        "weather": [
+          {
+            "id": 803,
+            "main": "Clouds",
+            "description": "broken clouds",
+            "icon": "04d"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 18,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 2200,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.95,
+        "travelTimeIndex": 2.50
+      },
+      "incidents": [
+        {
+          "id": "inc_002",
+          "type": "JAM",
+          "severity": 4,
+          "description": "Heavy traffic on Mittlerer Ring - rush hour congestion",
+          "location": { "lat": 48.1400, "lon": 11.6000 },
+          "delayInSeconds": 1200,
+          "lengthInMeters": 3500
+        }
+      ]
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "FoodEvent",
+          "identifier": "evt_rest_601",
+          "name": "Quick Business Lunch Special",
+          "description": "Express lunch menu for busy professionals. 30-minute service guarantee.",
+          "startDate": "2025-11-22T12:00:00+01:00",
+          "endDate": "2025-11-22T14:00:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Fraunhofer Restaurant",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Fraunhoferstraße 9",
+              "addressLocality": "München",
+              "postalCode": "80469",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1320,
+              "longitude": 11.5740
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "14.90",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "identifier": "evt_yoga_303",
+          "name": "Evening Stress-Relief Yoga",
+          "description": "Gentle yoga focused on tension release. Perfect after work.",
+          "startDate": "2025-11-22T18:30:00+01:00",
+          "endDate": "2025-11-22T19:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "City Yoga Studio",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1380,
+              "longitude": 11.5720
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "18.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SocialEvent",
+          "identifier": "evt_family_202",
+          "name": "Family Dinner at Augustiner",
+          "description": "Traditional Bavarian restaurant. Family-friendly environment.",
+          "startDate": "2025-11-22T18:00:00+01:00",
+          "endDate": "2025-11-22T21:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Augustiner Bräustuben",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1350,
+              "longitude": 11.5620
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_04_exec",
+      "name": "Marcus",
+      "role": "Executive",
+      "current_location": { "name": "Office - Munich Center", "lat": 48.1400, "lon": 11.5700 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "BUSY_BUT_ENDING_SOON",
+        "risk_flags": ["BURNOUT_RISK", "RELATIONSHIP_NEGLECT"],
+        "current_focus": "Meetings"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_02_retired", "relation": "Father", "status": "CRITICAL_DISCONNECT", "last_contact_days": 25 },
+        { "target_id": "user_09_colleague", "relation": "Work Friend", "status": "GOOD", "last_contact_days": 0 }
+      ]
+    },
+    {
+      "user_id": "user_02_retired",
+      "name": "Hans",
+      "role": "Retired",
+      "current_location": { "name": "Home (Lehel)", "lat": 48.1351, "lon": 11.5820 },
+      "sentry_analysis": {
+        "stress_level": "ELEVATED",
+        "availability": "FREE",
+        "risk_flags": ["ISOLATION_RISK"]
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_04_exec", "relation": "Son", "status": "CRITICAL_DISCONNECT", "last_contact_days": 25 }
+      ]
+    },
+    {
+      "user_id": "user_09_colleague",
+      "name": "Stefan",
+      "role": "Executive",
+      "current_location": { "name": "Office - Munich Center", "lat": 48.1400, "lon": 11.5700 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "BUSY_BUT_ENDING_SOON",
+        "current_focus": "Meetings"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_04_exec", "relation": "Work Friend", "status": "GOOD", "last_contact_days": 0 }
+      ]
+    }
+  ]
+}
+
+}

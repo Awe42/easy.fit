@@ -1,4 +1,77 @@
 {
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_05_parent",
+        "name": "Lisa",
+        "role": "New Parent",
+        "age": 32,
+        "traits": ["Sleep Deprived", "Fragmented Time", "Needs Village"],
+        "base_location": {"lat": 48.1600, "lon": 11.5500}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 75,
+                    "resting_hr_bpm": 62,
+                    "max_hr_bpm": 105
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 55,
+                "analysis": "NORMAL",
+                "stress_duration_seconds": 8000
+            },
+            "scores": {
+                "sleep": 35,
+                "recovery": 45,
+                "activity": 60
+            },
+            "distance_data": {
+                "steps": 8500
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 5.5,
+        "productivity_pulse": 40,
+        "top_activities": [
+            {"name": "Instagram", "category": "Social Media", "time_spent_seconds": 7200},
+            {"name": "Baby Tracker", "category": "Utility", "time_spent_seconds": 3600},
+            {"name": "WhatsApp", "category": "Communication", "time_spent_seconds": 5400}
+        ]
+    },
+    "gcal": {
+        "summary": "Lisa's Calendar",
+        "items": [
+            {
+                "summary": "Pediatrician Appointment",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-22T10:00:00+01:00" },
+                "end": { "dateTime": "2025-11-22T11:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "English Garden",
+                        "latitudeE7": 481507000,
+                        "longitudeE7": 115944000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T16:15:00Z",
+                        "endTimestamp": "2025-11-22T17:30:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
   "environment_feed": {
     "weather_api": {
       "provider": "OpenWeatherMap_OneCall_3.0",
@@ -214,4 +287,5 @@
       "social_graph_snapshot": []
     }
   ]
+}
 }

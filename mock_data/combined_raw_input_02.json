@@ -1,0 +1,243 @@
+{
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_02_retired",
+        "name": "Hans",
+        "role": "Retired",
+        "age": 74,
+        "traits": ["Early Riser", "Limited Mobility", "Lonely"],
+        "base_location": {"lat": 48.1351, "lon": 11.5820}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 78,
+                    "resting_hr_bpm": 72,
+                    "max_hr_bpm": 95
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 65,
+                "analysis": "ELEVATED",
+                "stress_duration_seconds": 15000
+            },
+            "scores": {
+                "sleep": 55,
+                "recovery": 40,
+                "activity": 15
+            },
+            "distance_data": {
+                "steps": 1200
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 0.5,
+        "productivity_pulse": 20,
+        "top_activities": [
+            {"name": "WhatsApp", "category": "Communication", "time_spent_seconds": 900},
+            {"name": "News App", "category": "News", "time_spent_seconds": 900}
+        ]
+    },
+    "gcal": {
+        "summary": "Hans's Calendar",
+        "items": []
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Home",
+                        "latitudeE7": 481351000,
+                        "longitudeE7": 115820000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T06:00:00Z",
+                        "endTimestamp": "2025-11-22T18:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1351,
+      "lon": 11.5820,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 16.8,
+        "feels_like": 15.9,
+        "pressure": 1018,
+        "humidity": 70,
+        "dew_point": 11.2,
+        "uvi": 1,
+        "clouds": 25,
+        "visibility": 10000,
+        "wind_speed": 2.5,
+        "wind_deg": 180,
+        "weather": [
+          {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02d"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 40,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 950,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.92,
+        "travelTimeIndex": 1.08
+      },
+      "incidents": []
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "SocialEvent",
+          "identifier": "evt_senior_301",
+          "name": "Senior Citizens Coffee Morning",
+          "description": "Weekly gathering for coffee, cake, and conversation. All ages welcome.",
+          "startDate": "2025-11-22T10:00:00+01:00",
+          "endDate": "2025-11-22T12:00:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Café Frischhut",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Prälat-Zistl-Straße 8",
+              "addressLocality": "München",
+              "postalCode": "80331",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1340,
+              "longitude": 11.5790
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "5.50",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "Lehel Community Center"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ExhibitionEvent",
+          "identifier": "evt_museum_77",
+          "name": "Bavaria Through the Ages",
+          "description": "Permanent exhibition. Free entry for seniors on weekdays.",
+          "startDate": "2025-11-22T09:00:00+01:00",
+          "endDate": "2025-11-22T17:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Bavarian National Museum",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1420,
+              "longitude": 11.5880
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "identifier": "evt_walk_202",
+          "name": "Gentle Walking Group - Isar Trail",
+          "description": "Easy-paced walk along the river. Wheelchair accessible route.",
+          "startDate": "2025-11-22T14:00:00+01:00",
+          "endDate": "2025-11-22T15:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Max-Joseph Bridge",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1380,
+              "longitude": 11.5890
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_02_retired",
+      "name": "Hans",
+      "role": "Retired",
+      "current_location": { "name": "Home (Lehel)", "lat": 48.1351, "lon": 11.5820 },
+      "sentry_analysis": {
+        "stress_level": "ELEVATED",
+        "availability": "FREE",
+        "risk_flags": ["ISOLATION_RISK", "SEDENTARY_ALERT"]
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_04_exec", "relation": "Son", "status": "CRITICAL_DISCONNECT", "last_contact_days": 25 }
+      ]
+    },
+    {
+      "user_id": "user_04_exec",
+      "name": "Marcus",
+      "role": "Executive",
+      "current_location": { "name": "Office - Munich Center", "lat": 48.1400, "lon": 11.5700 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "BUSY",
+        "risk_flags": ["RELATIONSHIP_NEGLECT"],
+        "current_focus": "Work Meetings"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_02_retired", "relation": "Father", "status": "CRITICAL_DISCONNECT", "last_contact_days": 25 }
+      ]
+    },
+    {
+      "user_id": "user_07_neighbor",
+      "name": "Helga",
+      "role": "Retired",
+      "current_location": { "name": "Home (Lehel)", "lat": 48.1345, "lon": 11.5815 },
+      "sentry_analysis": {
+        "stress_level": "NORMAL",
+        "availability": "FREE"
+      },
+      "social_graph_snapshot": []
+    }
+  ]
+}
+
+}

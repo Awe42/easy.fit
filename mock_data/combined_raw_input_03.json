@@ -1,0 +1,246 @@
+{
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_03_expat",
+        "name": "Priya",
+        "role": "Expat Professional",
+        "age": 29,
+        "traits": ["Active", "Seeking Connection", "New in Town"],
+        "base_location": {"lat": 48.1200, "lon": 11.5600}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 85,
+                    "resting_hr_bpm": 58,
+                    "max_hr_bpm": 140
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 25,
+                "analysis": "LOW",
+                "stress_duration_seconds": 3000
+            },
+            "scores": {
+                "sleep": 85,
+                "recovery": 90,
+                "activity": 88
+            },
+            "distance_data": {
+                "steps": 12500
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 3.5,
+        "productivity_pulse": 50,
+        "top_activities": [
+            {"name": "Spotify", "category": "Entertainment", "time_spent_seconds": 5400},
+            {"name": "Google Maps", "category": "Utility", "time_spent_seconds": 1200},
+            {"name": "Instagram", "category": "Social Media", "time_spent_seconds": 2400}
+        ]
+    },
+    "gcal": {
+        "summary": "Priya's Calendar",
+        "items": []
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "English Garden",
+                        "latitudeE7": 481507000,
+                        "longitudeE7": 115944000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T16:00:00Z",
+                        "endTimestamp": "2025-11-22T18:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1490,
+      "lon": 11.5800,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 19.2,
+        "feels_like": 18.5,
+        "pressure": 1016,
+        "humidity": 60,
+        "dew_point": 11.5,
+        "uvi": 3,
+        "clouds": 15,
+        "visibility": 10000,
+        "wind_speed": 2.8,
+        "wind_deg": 200,
+        "weather": [
+          {
+            "id": 800,
+            "main": "Clear",
+            "description": "clear sky",
+            "icon": "01d"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 42,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 920,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.90,
+        "travelTimeIndex": 1.05
+      },
+      "incidents": []
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "SocialEvent",
+          "identifier": "evt_expat_501",
+          "name": "International Newcomers Brunch",
+          "description": "Meet other expats and locals. English-speaking friendly environment.",
+          "startDate": "2025-11-22T11:00:00+01:00",
+          "endDate": "2025-11-22T13:30:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "Lost Weekend Coffee & Records",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Schellingstraße 3",
+              "addressLocality": "München",
+              "postalCode": "80799",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1490,
+              "longitude": 11.5800
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "Munich Expats Network"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "EducationEvent",
+          "identifier": "evt_lang_404",
+          "name": "German Language Exchange",
+          "description": "Practice German with native speakers. All levels welcome.",
+          "startDate": "2025-11-22T18:30:00+01:00",
+          "endDate": "2025-11-22T20:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Universität Bar",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1510,
+              "longitude": 11.5780
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "MusicEvent",
+          "identifier": "evt_jazz_88",
+          "name": "Friday Jazz Night",
+          "description": "Live jazz performance. Intimate venue, international crowd.",
+          "startDate": "2025-11-22T20:00:00+01:00",
+          "endDate": "2025-11-22T23:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Jazzclub Unterfahrt",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1290,
+              "longitude": 11.5610
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "12.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_03_expat",
+      "name": "Priya",
+      "role": "Expat",
+      "current_location": { "name": "Lost Weekend Cafe", "lat": 48.1490, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "OPTIMAL",
+        "availability": "FREE",
+        "current_focus": "Socializing"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_01_student", "relation": "Friend", "status": "GOOD", "last_contact_days": 3 },
+        { "target_id": "user_08_expat", "relation": "Acquaintance", "status": "NEW", "last_contact_days": 7 }
+      ]
+    },
+    {
+      "user_id": "user_01_student",
+      "name": "Alex",
+      "role": "Student",
+      "current_location": { "name": "Home (Schwabing)", "lat": 48.1500, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "BUSY",
+        "current_focus": "Studying"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_03_expat", "relation": "Friend", "status": "GOOD", "last_contact_days": 3 }
+      ]
+    },
+    {
+      "user_id": "user_08_expat",
+      "name": "James",
+      "role": "Expat",
+      "current_location": { "name": "English Garden", "lat": 48.1580, "lon": 11.5960 },
+      "sentry_analysis": {
+        "stress_level": "NORMAL",
+        "availability": "FREE"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_03_expat", "relation": "Acquaintance", "status": "NEW", "last_contact_days": 7 }
+      ]
+    }
+  ]
+}
+
+}
