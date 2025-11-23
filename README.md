@@ -4,6 +4,13 @@
 
 [Slides to the 3-minute pitch](https://docs.google.com/presentation/d/1PzlXFOk4G-1eHB2sMWoBN4ow2-l56I00fscoXD49MBY/edit?usp=drivesdk)
 
+
+## Authors 
+
+[Anish Pathak](https://www.linkedin.com/in/anish-pathak5)
+
+[Abel Safran](https://www.linkedin.com/in/safranabel)
+
 ## Architecture Diagram
 
 ![Architecture Diagram](img/system_architecture.png)
