@@ -2,6 +2,8 @@
 
 ![easy.fit logo](img/easyfitlogodark.png)
 
+[Slides to the 3-minute pitch](https://docs.google.com/presentation/d/1PzlXFOk4G-1eHB2sMWoBN4ow2-l56I00fscoXD49MBY/edit?usp=drivesdk)
+
 ## Architecture Diagram
 
 ![Architecture Diagram](img/system_architecture.png)
