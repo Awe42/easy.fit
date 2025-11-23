@@ -1,0 +1,238 @@
+{
+    "sentry":{
+    "user_profile": {
+        "user_id": "user_01_student",
+        "name": "Alex",
+        "role": "Student",
+        "age": 22,
+        "traits": ["Night Owl", "High Screen Time", "Stress from Exams"],
+        "base_location": {"lat": 48.1500, "lon": 11.5800}
+    },
+    "terra": {
+        "current_daily_snapshot": {
+            "heart_rate_data": {
+                "summary": {
+                    "avg_hr_bpm": 92,
+                    "resting_hr_bpm": 68,
+                    "max_hr_bpm": 115
+                }
+            },
+            "stress_data": {
+                "avg_stress_level": 88,
+                "analysis": "HIGH",
+                "stress_duration_seconds": 22000
+            },
+            "scores": {
+                "sleep": 45,
+                "recovery": 30,
+                "activity": 20
+            },
+            "distance_data": {
+                "steps": 2100
+            }
+        }
+    },
+    "rescuetime": {
+        "total_hours": 11.5,
+        "productivity_pulse": 65,
+        "top_activities": [
+            {"name": "VS Code", "category": "Software Development", "time_spent_seconds": 18000},
+            {"name": "League of Legends", "category": "Gaming", "time_spent_seconds": 7200},
+            {"name": "Discord", "category": "Communication", "time_spent_seconds": 5400}
+        ]
+    },
+    "gcal": {
+        "summary": "Alex's Calendar",
+        "items": [
+            {
+                "summary": "Advanced Algorithms Exam",
+                "status": "confirmed",
+                "start": { "dateTime": "2025-11-23T09:00:00+01:00" },
+                "end": { "dateTime": "2025-11-23T12:00:00+01:00" }
+            }
+        ]
+    },
+    "gmaps": {
+        "timelineObjects": [
+            {
+                "placeVisit": {
+                    "location": {
+                        "name": "Home",
+                        "latitudeE7": 481500000,
+                        "longitudeE7": 115800000
+                    },
+                    "duration": {
+                        "startTimestamp": "2025-11-22T00:00:00Z",
+                        "endTimestamp": "2025-11-22T16:00:00Z"
+                    },
+                    "isCurrentLocation": true
+                }
+            }
+        ]
+    }
+},
+    "scout":{
+  "environment_feed": {
+    "weather_api": {
+      "provider": "OpenWeatherMap_OneCall_3.0",
+      "lat": 48.1500,
+      "lon": 11.5800,
+      "timezone": "Europe/Berlin",
+      "current": {
+        "dt": 1763830800,
+        "temp": 18.5,
+        "feels_like": 17.2,
+        "pressure": 1015,
+        "humidity": 65,
+        "dew_point": 11.8,
+        "uvi": 2,
+        "clouds": 40,
+        "visibility": 10000,
+        "wind_speed": 3.2,
+        "wind_deg": 220,
+        "weather": [
+          {
+            "id": 802,
+            "main": "Clouds",
+            "description": "scattered clouds",
+            "icon": "03d"
+          }
+        ]
+      },
+      "alerts": []
+    },
+    "traffic_api": {
+      "provider": "TomTom_Traffic_Flow",
+      "analysis_radius_meter": 5000,
+      "summary": {
+        "currentSpeed": 35,
+        "freeFlowSpeed": 45,
+        "currentTravelTime": 1100,
+        "freeFlowTravelTime": 880,
+        "confidence": 0.88,
+        "travelTimeIndex": 1.25
+      },
+      "incidents": []
+    },
+    "events_api": {
+      "provider": "Schema.org_Event_Aggregator",
+      "items": [
+        {
+          "@context": "https://schema.org",
+          "@type": "EducationEvent",
+          "identifier": "evt_tum_401",
+          "name": "Study Group: Algorithms Mock Exam",
+          "description": "Final prep session before tomorrow's exam. Bring your questions!",
+          "startDate": "2025-11-22T18:00:00+01:00",
+          "endDate": "2025-11-22T21:00:00+01:00",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "location": {
+            "@type": "Place",
+            "name": "TUM Main Library",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Arcisstraße 21",
+              "addressLocality": "München",
+              "postalCode": "80333",
+              "addressCountry": "DE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1490,
+              "longitude": 11.5680
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          },
+          "organizer": {
+            "@type": "Organization",
+            "name": "TUM Computer Science Students"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "SportsEvent",
+          "identifier": "evt_jog_102",
+          "name": "Evening Jog - English Garden",
+          "description": "Casual group jog, all paces welcome. Meet at Chinese Tower.",
+          "startDate": "2025-11-22T17:30:00+01:00",
+          "endDate": "2025-11-22T18:30:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Chinese Tower, English Garden",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1580,
+              "longitude": 11.5960
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FoodEvent",
+          "identifier": "evt_cafe_88",
+          "name": "Late Night Study Cafe",
+          "description": "Open until midnight. Free WiFi, quiet study zones.",
+          "startDate": "2025-11-22T19:00:00+01:00",
+          "endDate": "2025-11-23T00:00:00+01:00",
+          "location": {
+            "@type": "Place",
+            "name": "Café Glockenspiel",
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 48.1480,
+              "longitude": 11.5750
+            }
+          },
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  },
+  "users_sentry_state": [
+    {
+      "user_id": "user_01_student",
+      "name": "Alex",
+      "role": "Student",
+      "current_location": { "name": "Home (Schwabing)", "lat": 48.1500, "lon": 11.5800 },
+      "sentry_analysis": {
+        "stress_level": "HIGH",
+        "availability": "FREE",
+        "risk_flags": ["BURNOUT_RISK", "SEDENTARY_ALERT"],
+        "current_focus": "Exam Preparation"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_06_classmate", "relation": "Study Partner", "status": "GOOD", "last_contact_days": 1 }
+      ]
+    },
+    {
+      "user_id": "user_06_classmate",
+      "name": "Sarah",
+      "role": "Student",
+      "current_location": { "name": "TUM Campus", "lat": 48.1490, "lon": 11.5680 },
+      "sentry_analysis": {
+        "stress_level": "ELEVATED",
+        "availability": "FREE",
+        "current_focus": "Exam Preparation"
+      },
+      "social_graph_snapshot": [
+        { "target_id": "user_01_student", "relation": "Study Partner", "status": "GOOD", "last_contact_days": 1 }
+      ]
+    }
+  ]
+}
+
+}
